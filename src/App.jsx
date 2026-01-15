@@ -59,7 +59,7 @@ export default function App() {
   <div className="projects-grid">
     <a
       className="project-card"
-      href="https://github.com/o-jack25/Co-op-System"
+      href="https://github.com/o-jack25/ProRigRental"
       target="_blank"
       rel="noreferrer"
     >
@@ -72,7 +72,7 @@ export default function App() {
 
     <a
       className="project-card"
-      href="https://github.com/o-jack25/GenImageDetector"
+      href="https://github.com/GenImage-Dataset/GenImage"
       target="_blank"
       rel="noreferrer"
     >
@@ -83,18 +83,7 @@ export default function App() {
       </p>
     </a>
 
-    <a
-      className="project-card"
-      href="https://github.com/o-jack25/Edge-AI-Minions"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <h4>Edge AI Minions</h4>
-      <p>
-        Agent-based edge computing system using LLMs and SLMs for task
-        coordination and local decision making.
-      </p>
-    </a>
+    
   </div>
 </section>
 

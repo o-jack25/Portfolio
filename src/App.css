@@ -142,7 +142,7 @@ section {
 /* Contact section (if you're using the Formspree form styles I gave earlier) */
 .contact {
   margin: 4rem auto 0 auto;
-  padding: 0.5rem;
+  padding: 1.5rem;
   max-width: 600px;
   width: calc(100% - 2rem);
   border: 1px solid #1e293b;
@@ -288,6 +288,7 @@ section {
   color: rgba(241, 245, 249, 0.85);
   font-size: 0.95rem;
   line-height: 1.4;
+  text-align: left;
 }
 
 /* Hover / focus */
@@ -308,4 +309,12 @@ section {
   .project-card {
     transition: none;
   }
+}
+
+p{
+  text-align: center;
+}
+
+.contact-subtext{
+  text-align: left;
 }
