@@ -1,14 +1,42 @@
+import { useState } from "react";
 import "./App.css";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="page">
       <nav className="navbar">
-        <ul className="nav-list">
-          <li><a href="#about">About</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div className="nav-inner">
+          {/* Optional brand on the left */}
+          
+
+          {/* Desktop nav (shows on wider screens) */}
+          <ul className="nav-list desktop-nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+
+          {/* Mobile hamburger button (shows on small screens) */}
+          <button
+            className="menu-btn"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+          >
+            ☰
+          </button>
+        </div>
+
+        {/* Mobile dropdown menu */}
+        {menuOpen && (
+          <div className="mobile-menu">
+            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
+            <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          </div>
+        )}
       </nav>
 
       <main className="container">
@@ -26,20 +54,50 @@ export default function App() {
         </section>
 
         <section id="projects">
-          <h3>Projects</h3>
-          <ul>
-            <li>
-              <strong>Co-op System</strong> – Flask, SQLAlchemy, PostgreSQL
-            </li>
-            <li>
-              <strong>GenImageDetector</strong> – Deep learning model training on HPC
-              clusters
-            </li>
-            <li>
-              <strong>Edge AI Minions</strong> – Agent-based edge computing system
-            </li>
-          </ul>
-        </section>
+  <h3>Projects</h3>
+
+  <div className="projects-grid">
+    <a
+      className="project-card"
+      href="https://github.com/o-jack25/Co-op-System"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <h4>Co-op System</h4>
+      <p>
+        Full-stack web application built with Flask, SQLAlchemy, and PostgreSQL
+        to manage co-op placements for students, faculty, and employers.
+      </p>
+    </a>
+
+    <a
+      className="project-card"
+      href="https://github.com/o-jack25/GenImageDetector"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <h4>GenImageDetector</h4>
+      <p>
+        Deep learning pipeline for detecting AI-generated images, trained and
+        evaluated across multiple datasets on HPC clusters.
+      </p>
+    </a>
+
+    <a
+      className="project-card"
+      href="https://github.com/o-jack25/Edge-AI-Minions"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <h4>Edge AI Minions</h4>
+      <p>
+        Agent-based edge computing system using LLMs and SLMs for task
+        coordination and local decision making.
+      </p>
+    </a>
+  </div>
+</section>
+
 
         <section id="contact" className="contact">
           <h3>Contact</h3>
@@ -55,7 +113,7 @@ export default function App() {
             <div className="contact-grid">
               <label>
                 Name
-                <input type="text" name="name"/>
+                <input type="text" name="name" />
               </label>
 
               <label>
