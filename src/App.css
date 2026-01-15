@@ -1,0 +1,176 @@
+/* Smooth scroll for navbar anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animated background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #020617, #020617, #0f172a, #020617);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  color: #f1f5f9;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Layout container */
+.container {
+  padding: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 3rem;
+  border-bottom: 1px solid #1e293b;
+  background: rgba(2, 6, 23, 0.8); /* slightly see-through */
+  backdrop-filter: blur(10px);
+}
+
+/* Nav links aligned right */
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  color: #f8fafc;
+}
+
+.nav-list a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* Section spacing */
+h3 {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  scroll-margin-top: 90px; /* prevents sticky navbar covering headings */
+}
+
+.contact h3{
+  margin-top: 0.1rem;
+}
+
+/* Contact section (if you're using the Formspree form styles I gave earlier) */
+.contact {
+  margin: 4rem auto 0 auto;
+  padding: 1.5rem;
+  max-width: 600px;
+  width: 100%;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  background: rgba(2, 6, 23, 0.5);
+}
+
+.contact-subtext {
+  margin-top: .5rem;
+  color: rgba(241, 245, 249, 0.8);
+}
+
+.contact-form {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid #334155;
+  color: #f1f5f9;
+  padding: 0.75rem;
+  border-radius: 10px;
+  outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #38bdf8;
+}
+
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: #38bdf8;
+  border: none;
+  color: #020617;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(0.95);
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.contact-links a {
+  color: #f1f5f9;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.contact-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 1rem 1.25rem;
+  }
+  .container {
+    padding: 2rem 1.25rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
