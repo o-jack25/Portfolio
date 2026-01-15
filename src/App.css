@@ -1,6 +1,16 @@
 /* Smooth scroll for navbar anchor links */
-html {
+html, body {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+p, a, li {
+  overflow-wrap: anywhere;
 }
 
 /* Animated background */
