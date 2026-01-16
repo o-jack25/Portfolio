@@ -24,6 +24,8 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+
+
 h1{
   text-align: center;
   margin-top: 0.5rem;
@@ -153,8 +155,9 @@ section {
 .contact {
   margin: 4rem auto 0 auto;
   padding: 1.5rem;
-  max-width: 600px;
-  width: calc(100% - 2rem);
+  max-width: 1100px;
+ /* width: calc(100% - 2rem); */
+  width: 100%;
   border: 1px solid #1e293b;
   border-radius: 12px;
   background: rgba(2, 6, 23, 0.5);
