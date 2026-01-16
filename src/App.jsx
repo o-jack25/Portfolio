@@ -144,10 +144,23 @@ export default function App() {
       target="_blank"
       rel="noreferrer"
     >
-      <h4>GenImageDetector</h4>
+      <h4>Gen AI Image Detector</h4>
       <p>
         Deep learning pipeline for detecting AI-generated images, trained and
         evaluated across multiple datasets on HPC clusters.
+      </p>
+    </a>
+
+    <a
+      className="project-card"
+      href="https://github.com/o-jack25/ProRigRental"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <h4>Pro Rig Rental</h4>
+      <p>
+        Full-stack web application for renting industrial equipment,
+        built with JavaScript, Flask, and MongoDB.
       </p>
     </a>
 

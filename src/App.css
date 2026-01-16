@@ -9,8 +9,8 @@
   --muted: #475569;    /* slate-600 */
   --card: rgba(255, 255, 255, 0.82);
   --cardSolid: #ffffff;
-  --nav: rgba(245, 249, 250, 0.75);
-  --border: #e5e7eb;   /* gray-200 */
+  --nav: rgba(230, 237, 228, 0);
+  --border: #eceff5;   /* gray-200 */
   --shadow: rgba(15, 23, 42, 0.10);
   --accent: #477df1;   /* blue-600 */
   --accentSoft: rgba(37, 99, 235, 0.18);
