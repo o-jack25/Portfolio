@@ -1,4 +1,22 @@
-/* Smooth scroll for navbar anchor links */
+/* =========================
+   THEME (Bright / Friendly)
+   ========================= */
+:root {
+  --bg1: #ffffff;      /* slate-50 */
+  --bg2: #ffffff;      /* indigo-50 */
+  --bg3: #fdfeff;      /* sky-100 */
+  --text: #0f172a;     /* slate-900 */
+  --muted: #475569;    /* slate-600 */
+  --card: rgba(255, 255, 255, 0.82);
+  --cardSolid: #ffffff;
+  --nav: rgba(245, 249, 250, 0.75);
+  --border: #e5e7eb;   /* gray-200 */
+  --shadow: rgba(15, 23, 42, 0.10);
+  --accent: #477df1;   /* blue-600 */
+  --accentSoft: rgba(37, 99, 235, 0.18);
+}
+
+/* Smooth scroll + prevent sideways wiggle */
 html, body {
   scroll-behavior: smooth;
   width: 100%;
@@ -13,29 +31,44 @@ p, a, li {
   overflow-wrap: anywhere;
 }
 
-/* Animated background */
+/* =========================
+   Animated background
+   ========================= */
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(120deg, #020617, #020617, #0f172a, #020617);
+  background: linear-gradient(120deg, var(--bg1), var(--bg2), var(--bg3), var(--bg1));
   background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-  color: #f1f5f9;
+  animation: gradientMove 18s ease infinite;
+  color: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-
-
-h1{
-  text-align: center;
-  margin-top: 0.5rem;
-
 }
 
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Typography */
+h1 {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.projects-title {
+  text-align: center;
+}
+
+h3 {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+p {
+  text-align: center;
+  color: var(--muted);
 }
 
 /* Layout container */
@@ -45,161 +78,243 @@ h1{
   margin: 0 auto;
 }
 
-/* Navbar */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* =========================
+   Navbar
+   ========================= */
 .navbar {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 100;
-  border-bottom: 1px solid #1e293b;
-  background: rgba(2, 6, 23, 0.8); /* slightly see-through */
-  backdrop-filter: blur(10px);
-  
+  border-bottom: 1px solid var(--border);
+  background: var(--nav);
+  backdrop-filter: blur(12px);
 }
 
-.nav-inner{
+.nav-inner {
   width: 100%;
-  padding: 1rem clamp(1rem, 4vw, 3rem);;
-
+  padding: 1rem clamp(1rem, 4vw, 3rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-/* Nav links aligned right */
-.nav-list {
-  display: flex;
+  justify-content: center;
   
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-weight: 600;
-  color: #f8fafc;
-}
-
-.nav-list a {
-  color: inherit;
-  text-decoration: none;
-  opacity: 0.9;
-}
-
-.nav-list a:hover {
-  text-decoration: underline;
-  opacity: 1;
 }
 
 .brand {
-  color: #f8fafc;
+  color: var(--text);
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.5px;
   opacity: 0.95;
 }
 
-.desktop-nav {
-  margin-left: auto; /* pushes desktop nav to the right */
+.nav-list {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 650;
+  color: var(--text);
+  align-items: center;
 }
 
-/* hamburger button (hidden on desktop) */
+.nav-list a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+
+.nav-list a:hover {
+  opacity: 1;
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* Desktop nav */
+.desktop-nav {
+ /* margin-left: auto;*/
+  align-items: center;
+}
+
+/* Icons */
+.nav-icon a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text);
+  opacity: 0.8;
+  transition: opacity 0.15s ease, transform 0.15s ease, color 0.15s ease;
+}
+
+.nav-icon a:hover {
+  opacity: 1;
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.nav-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Hamburger button (hidden on desktop) */
 .menu-btn {
   display: none;
-  background: transparent;
-  border: 1px solid #334155;
-  color: #f8fafc;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border);
+  color: var(--text);
   padding: 0.5rem 0.75rem;
   border-radius: 10px;
   font-size: 1.1rem;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* dropdown menu container */
+.menu-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px var(--shadow);
+}
+
+/* Dropdown menu */
 .mobile-menu {
-  display: none; /* will show on mobile when rendered */
-  border-top: 1px solid #1e293b;
-  background: rgba(2, 6, 23, 0.92);
-  backdrop-filter: blur(10px);
+  display: none;
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
   padding: 0.75rem 3rem;
 }
 
 .mobile-menu a {
   display: block;
   padding: 0.75rem 0;
-  color: #f8fafc;
+  color: var(--text);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 650;
   opacity: 0.95;
 }
 
 .mobile-menu a:hover {
-  text-decoration: underline;
-  opacity: 1;
+  color: var(--accent);
 }
 
-/* Section spacing */
-h3 {
-  margin-top: 4rem;
-  margin-bottom: 1rem;
+.mobile-icons {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
 }
 
-section {
-  scroll-margin-top: 90px; /* prevents sticky navbar covering headings */
+/* =========================
+   Projects
+   ========================= */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.contact h3{
-  margin-top: 0.1rem;
+.project-card {
+  display: block;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Contact section (if you're using the Formspree form styles I gave earlier) */
+.project-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.15rem;
+}
+
+.project-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.14);
+}
+
+.project-card::after {
+  content: "↗";
+  float: right;
+  opacity: 0.45;
+}
+
+/* =========================
+   Contact
+   ========================= */
 .contact {
   margin: 4rem auto 0 auto;
   padding: 1.5rem;
   max-width: 1100px;
- /* width: calc(100% - 2rem); */
   width: 100%;
-  border: 1px solid #1e293b;
-  border-radius: 12px;
-  background: rgba(2, 6, 23, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  box-shadow: 0 10px 25px var(--shadow);
+}
+
+.contact h3 {
+  margin-top: 0.1rem;
 }
 
 .contact-subtext {
-  margin-top: .5rem;
-  color: rgba(241, 245, 249, 0.8);
+  margin-top: 0.5rem;
+  color: var(--muted);
+  text-align: left;
 }
 
 .contact-form {
   margin-top: 0.5rem;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 
 .contact-grid {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.75rem;
   grid-template-columns: 1fr 1fr;
 }
 
 .contact-form label {
   display: grid;
   gap: 0.5rem;
-  font-weight: 600;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 650;
 }
 
 .contact-form input,
 .contact-form textarea {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid #334155;
-  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  color: var(--text);
   padding: 0.75rem;
-  border-radius: 10px;
+  border-radius: 12px;
   outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #38bdf8;
+  border-color: rgba(37, 99, 235, 0.55);
+  box-shadow: 0 0 0 4px var(--accentSoft);
 }
 
 .contact-actions {
@@ -211,17 +326,20 @@ section {
 }
 
 .btn {
-  background: #38bdf8;
+  background: var(--accent);
   border: none;
-  color: #020617;
+  color: white;
   padding: 0.75rem 1rem;
-  border-radius: 10px;
-  font-weight: 700;
+  border-radius: 12px;
+  font-weight: 750;
   cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 .btn:hover {
-  filter: brightness(0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22);
+  filter: brightness(0.98);
 }
 
 .contact-links {
@@ -230,33 +348,44 @@ section {
 }
 
 .contact-links a {
-  color: #f1f5f9;
+  color: var(--text);
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .contact-links a:hover {
+  color: var(--accent);
   opacity: 1;
   text-decoration: underline;
 }
 
+/* Reduce hover motion for touch devices */
+@media (hover: none) {
+  .project-card, .nav-list a, .nav-icon a, .btn {
+    transition: none;
+  }
+}
+
+/* =========================
+   Mobile
+   ========================= */
 @media (max-width: 700px) {
   .nav-inner {
     padding: 1rem 1.25rem;
   }
 
   .desktop-nav {
-    display: none; /* hide desktop links */
+    display: none;
   }
 
   .menu-btn {
-    display: inline-flex; /* show hamburger */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
   .mobile-menu {
-    display: block; /* show dropdown area when it exists (menuOpen) */
+    display: block;
     padding: 0.75rem 1.25rem;
   }
 
@@ -269,65 +398,3 @@ section {
   }
 }
 
-
-/* Projects grid */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-/* Project card */
-.project-card {
-  display: block;
-  padding: 1.5rem;
-  border-radius: 16px;
-  border: 1px solid #1e293b;
-  background: rgba(2, 6, 23, 0.55);
-  backdrop-filter: blur(6px);
-  color: #f1f5f9;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.project-card h4 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.15rem;
-}
-
-.project-card p {
-  margin: 0;
-  color: rgba(241, 245, 249, 0.85);
-  font-size: 0.95rem;
-  line-height: 1.4;
-  text-align: left;
-}
-
-/* Hover / focus */
-.project-card:hover,
-.project-card:focus-visible {
-  transform: translateY(-4px);
-  border-color: #38bdf8;
-  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.15);
-}
-
-.project-card::after {
-  content: "↗";
-  float: right;
-  opacity: 0.6;
-}
-
-@media (hover: none) {
-  .project-card {
-    transition: none;
-  }
-}
-
-p{
-  text-align: center;
-}
-
-.contact-subtext{
-  text-align: left;
-}
