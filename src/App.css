@@ -398,3 +398,12 @@ section {
   }
 }
 
+@media (max-width: 700px) {
+  .nav-inner {
+    justify-content: space-between;
+  }
+
+  .menu-btn {
+    margin-right: auto;
+  }
+}
